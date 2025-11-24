@@ -18,8 +18,8 @@ The model was trained on the **UrbanSound8K** dataset, a standard benchmark for 
 * **Normalization:** A crucial step for model stability. We calculated the global Mean and Standard Deviation of the training set and applied Z-score normalization.
     * *Note:* These constants (`normalization_constants.json`) are exported for use in the C++ firmware to ensure the ESP32 preprocesses real-world audio exactly like the training data.
 
-## 3. Model Architecture (v10)
-A custom Convolutional Neural Network (CNN) was designed specifically for this task. Unlike standard pre-trained models (like VGG or ResNet) which are too heavy for an ESP32, this architecture ("v10 Robust Conv2D") is lightweight.
+## 3. Model Architecture
+A custom Convolutional Neural Network (CNN) was designed specifically for this task. Unlike standard pre-trained models (like VGG or ResNet) which are too heavy for an ESP32, this architecture is lightweight.
 
 ### Key Architectural Decisions:
 1.  **Spatial Dropout:** Instead of standard dropout, `SpatialDropout2D` was used. In spectrograms, adjacent pixels are highly correlated; dropping entire feature maps forces the network to learn more robust features.
